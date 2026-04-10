@@ -7,27 +7,23 @@ public class Lever : MonoBehaviour
     private float rotateLevel = 90f;
     private bool isUsed = false;
 
-    private void Update()
-    {
-        SwithchLever();
-    }
-
-    private void SwithchLever()
+    public void SwithchLever()
     {
         float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
 
-        if (distance < 2.3f)
+        if (distance < 3f)
         {
-            if (Input.GetKeyDown(KeyCode.E) && !isUsed)
+            if (!isUsed)
             {
                 lever.Rotate(0f, 0f, rotateLevel);
                 isUsed = true;
             }
-            else if (Input.GetKeyDown(KeyCode.E) && isUsed)
+            else
             {
                 lever.Rotate(0f, 0f, -rotateLevel);
                 isUsed = false;
             }
         }
+
     }
 }

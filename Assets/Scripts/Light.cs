@@ -80,6 +80,7 @@ public class Light : MonoBehaviour
         newLight.transform.parent = mirror.transform;
         newLight.transform.localPosition = new Vector3(0f, 0f, 0f);
         newLight.transform.localScale = new Vector3(0.1f, 0.1f, 0f);
+        newLight.tag = "Light";
 
         Light lightScript = newLight.AddComponent<Light>();
         lightScript.growthSpeed = growthSpeed;

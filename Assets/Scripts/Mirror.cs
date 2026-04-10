@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Mirror : MonoBehaviour
 {
-    public static Mirror Instance { get; private set; }
     public Light lastLight;
     public int preNumber;
+    public Transform mirror;
 
     private float rotateMirror = 90f;
     private string childName;
@@ -15,61 +15,49 @@ public class Mirror : MonoBehaviour
         colliderMirror = GetComponent<Collider2D>();
     }
 
-    private void Update()
+    public void Rotate()
     {
-        Rotate();
-    }
 
-    private void Rotate()
-    {
-        float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
+        transform.Rotate(0f, 0f, rotateMirror);
+        colliderMirror.isTrigger = false;
+        colliderMirror.isTrigger = true;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (transform.childCount > 1)
         {
-            if (distance < 2f)
-            {
-                transform.Rotate(0f, 0f, rotateMirror);
-                colliderMirror.isTrigger = false;
-                colliderMirror.isTrigger = true;
 
+            GameObject[] lights = GameObject.FindGameObjectsWithTag("Light");
+
+            foreach (GameObject light in lights)
+            {
+                string objectName = light.name;
 
                 if (transform.childCount > 1)
                 {
+                    childName = transform.GetChild(1).name;
 
-                    GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+                    string[] parts = objectName.Split('_');
+                    string[] partsChild = childName.Split('_');
+                    int.TryParse(partsChild[1], out int numberChild);
 
-                    foreach (GameObject obj in allObjects)
+                    if (parts[0] == "Light")
                     {
-                        string objectName = obj.name;
+                        int.TryParse(parts[1], out int number);
 
-                        if (transform.childCount > 1)
-                        {
-                            childName = transform.GetChild(1).name;
-
-                            string[] parts = objectName.Split('_');
-                            string[] partsChild = childName.Split('_');
-                            int.TryParse(partsChild[1], out int numberChild);
-
-                            if (parts[0] == "Light")
-                            {
-                                int.TryParse(parts[1], out int number);
-
-                                if (number >= numberChild)
-                                    Destroy(obj);
-                            }
-                        }
+                        if (number >= numberChild)
+                            Destroy(light);
                     }
-                }
-
-                if (lastLight != null)
-                {
-                    Collider2D lightCollider = lastLight.GetComponent<Collider2D>();
-
-                    lastLight.isCreated = false;
-                    lightCollider.enabled = false;
-                    lightCollider.enabled = true;
                 }
             }
         }
+
+        if (lastLight != null)
+        {
+            Collider2D lightCollider = lastLight.GetComponent<Collider2D>();
+
+            lastLight.isCreated = false;
+            lightCollider.enabled = false;
+            lightCollider.enabled = true;
+        }
+            
     }
 }

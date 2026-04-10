@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
@@ -16,9 +14,9 @@ public class Player : MonoBehaviour
 
 
     private Vector2 lastDirection = Vector2.down;
-    public bool IsRight => lastDirection.x > 0 && Input.GetKey(KeyCode.D);
-    public bool IsLeft => lastDirection.x < 0 && Input.GetKey(KeyCode.A);
-    public bool Jump => (Input.GetKeyDown(KeyCode.Space));
+    public bool IsRight => lastDirection.x > 0 && Controller.Instance.isRight && !Controller.Instance.isLeft;
+    public bool IsLeft => lastDirection.x < 0 && Controller.Instance.isLeft && !Controller.Instance.isRight;
+    public bool Jump => Controller.Instance.isUp;
     
 
     private void Awake()
@@ -39,7 +37,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         HandleMovement();
-        Taketem();
     }
     public void OnDestroy()
     {
@@ -63,15 +60,12 @@ public class Player : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 
-    private void Taketem()
+    public void TakeItem()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (heldItem == null)
-                TryTake();
-            else
-                DropItem();
-        }
+        if (heldItem == null)
+            TryTake();
+        else
+            DropItem();
     }
 
     private void TryTake()
