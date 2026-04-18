@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private float speed = 5f, minSpeed = 0.1f, jumpForce = 5f, maxJump = 0f;
+    private float speed = 5f, minSpeed = 0.1f, jumpForce = 6f, maxJump = 0f;
 
     public Transform holdPosition;
     public GameObject heldItem = null;
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         if (inputVector.magnitude > minSpeed)
             lastDirection = inputVector;
 
-        if (Jump && rb.position.y <= maxJump)
+        if (Jump)
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 
