@@ -1,11 +1,18 @@
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Light : MonoBehaviour
 {
-    public bool isCreated = false, isGrowing = true;
-    private float growthSpeed = 10f, grow;
+    public bool isCreated = true, isGrowing = true;
     public bool isHorizontal = true, isUp = true, isRight = true;
+    public Vector3 startPoint, direction, newpoint;
+
+    public LayerMask hitLayers;
+    public LineRenderer lineRenderer;
+
+    private float maxDistance = 100f;
+    private RaycastHit2D hit;
     private int lightNumber;
 
     private void Update()
@@ -16,112 +23,70 @@ public class Light : MonoBehaviour
 
     private void Grow()
     {
-        Vector2 newScale = transform.localScale;
-        Vector2 newPosition = transform.position;
-        grow = growthSpeed * Time.deltaTime;
+        lineRenderer = GetComponent<LineRenderer>();
 
-        newScale.x += grow;
+        startPoint = transform.position;
 
         if (isHorizontal)
-        {
-            if (isRight)
-                newPosition.x += grow / 2;
-            else
-                newPosition.x -= grow / 2;
-        }
+            direction = isRight ? transform.right : -transform.right;
         else
+            direction = isUp ? transform.up : -transform.up;
+
+        hit = Physics2D.Raycast(startPoint, direction, maxDistance, hitLayers);
+        lineRenderer.SetPosition(0, startPoint);
+
+        if (hit.collider != null && transform.parent == hit.collider.transform)
         {
-            if (isUp)
-                newPosition.y += grow / 2;
-            else
-                newPosition.y -= grow / 2;
+            newpoint = startPoint + 0.5f * direction;
+            lineRenderer.SetPosition(1, newpoint);
+
+            hit = Physics2D.Raycast(newpoint, direction, maxDistance, hitLayers);
         }
 
-        transform.localScale = newScale;
-        transform.position = newPosition;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-
-        if (other.CompareTag("Back"))
+        if (hit.collider != null)
         {
-            if (other.transform.parent != null)
-            {
-                Mirror mirrorScript = other.transform.parent.GetComponent<Mirror>();
-                mirrorScript.lastLight = this;
-            }
-            
-            isGrowing = false;
-            isCreated = true;
-            return;
-        }
+            lineRenderer.SetPosition(1, hit.point + (Vector2)(0.1f * direction));
 
-        if (other.CompareTag("Mirror") && transform.parent != other.transform)
-        {
-            isGrowing = false;
-
-            Mirror mirrorScript = other.GetComponent<Mirror>();
-            mirrorScript.lastLight = this;
-
-            if (!isCreated)
+            if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Mirror" && transform.parent != hit.collider.transform && !isCreated)
             {
                 isCreated = true;
-                CreateNewLight(other);
+                isGrowing = false;
+                CreateNewLight(hit.collider, hit);
             }
         }
     }
 
-    public void CreateNewLight(Collider2D mirror)
+    private void CreateNewLight(Collider2D collider, RaycastHit2D hit)
     {
+        Mirror mirrorScript = collider.transform.GetComponent<Mirror>();
+        mirrorScript.lastLight = this;
+
         lightNumber++;
 
         GameObject newLight = new GameObject($"Light_{lightNumber}");
-        newLight.transform.parent = mirror.transform;
+        newLight.transform.parent = collider.transform;
         newLight.transform.localPosition = new Vector3(0f, 0f, 0f);
-        newLight.transform.localScale = new Vector3(0.1f, 0.1f, 0f);
+
         newLight.tag = "Light";
 
         Light lightScript = newLight.AddComponent<Light>();
-        lightScript.growthSpeed = growthSpeed;
+        lightScript.isCreated = false;
+        lightScript.isGrowing = true;
         lightScript.lightNumber = lightNumber;
+        lightScript.isHorizontal = !isHorizontal;
+        lightScript.hitLayers = hitLayers;
 
-        DirectionLight(lightScript, mirror, newLight);
+        DirectionLight(collider, lightScript);
 
-        SpriteRenderer renderer = newLight.AddComponent<SpriteRenderer>();
-        renderer.sprite = GetComponent<SpriteRenderer>().sprite;
-        renderer.color = GetComponent<SpriteRenderer>().color;
-        renderer.sortingOrder = -1;
-
-        BoxCollider2D collider = newLight.AddComponent<BoxCollider2D>();
-        collider.size = new Vector2(1f, 1f);
-        collider.isTrigger = true;
-
-        Rigidbody2D rb = newLight.AddComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Kinematic;
+        LineRenderer renderer = newLight.AddComponent<LineRenderer>();
+        renderer.startWidth = 0.1f;
+        renderer.material = lineRenderer.material;
+        renderer.colorGradient = lineRenderer.colorGradient;
     }
 
-    public void DirectionLight(Light lightScript, Collider2D mirror, GameObject newLight)
+    public void DirectionLight(Collider2D collider, Light lightScript)
     {
-        if (transform.rotation.eulerAngles.z == 0f)
-        {
-            newLight.transform.eulerAngles = new Vector3(0f, 0f, 90f);
-            lightScript.isHorizontal = false;
-        }
-        else
-        {
-            newLight.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            lightScript.isHorizontal = true;
-        }
-
-        if (mirror.transform.up.x > 0f)
-            lightScript.isRight = true;
-        else
-            lightScript.isRight = false;
-
-        if (mirror.transform.up.y  > 0f)
-            lightScript.isUp = true;
-        else
-            lightScript.isUp = false;
+        lightScript.isRight = collider.transform.up.x > 0f ? true : false;
+        lightScript.isUp = collider.transform.up.y > 0f ? true : false;
     }
 }
