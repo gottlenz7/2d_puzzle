@@ -27,9 +27,9 @@ public class Throw : MonoBehaviour
 
             Player.Instance.heldItem = null;
 
-            if (Player.Instance.IsRight)
+            if (PlayerVisual.Instance.isRight)
                 facingDirection = 1;
-            else if (Player.Instance.IsLeft)
+            else if (PlayerVisual.Instance.isLeft)
                 facingDirection = -1;
             else
                 facingDirection = 0;

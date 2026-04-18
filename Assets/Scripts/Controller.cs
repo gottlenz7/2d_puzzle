@@ -4,7 +4,7 @@ public class Controller : MonoBehaviour
 {
     public static Controller Instance { get; private set; }
 
-    public bool isRight = false, isLeft = false, isUp = false;
+    private TakeDrop takeDropscript;
 
     private void Awake()
     {
@@ -16,34 +16,37 @@ public class Controller : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        takeDropscript = new TakeDrop();
     }
 
     private void Update()
     {
         CheckButton();
+        HandleMovement();
     }
 
     private void CheckButton()
     {
-        isUp = false;
-        isLeft = false;
-        isRight = false;
+        PlayerVisual.Instance.Jump = false;
+        PlayerVisual.Instance.isLeft = false;
+        PlayerVisual.Instance.isRight = false;
 
         if (Input.GetKey(KeyCode.D))
         {
-            isRight = true;
+            PlayerVisual.Instance.isRight = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            isLeft = true;
+            PlayerVisual.Instance.isLeft = true;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            isUp = true;
+            PlayerVisual.Instance.Jump = true;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Player.Instance.TakeItem();
+            takeDropscript.TakeItem();
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -73,5 +76,22 @@ public class Controller : MonoBehaviour
                 lever.SwithchLever();
 
         }
+    }
+
+    private void HandleMovement()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        Vector2 inputVector = new Vector2(horizontal, vertical);
+        inputVector = inputVector.normalized;
+
+        Player.Instance.rb.linearVelocity = new Vector2(horizontal * Player.Instance.speed, Player.Instance.rb.linearVelocity.y);
+
+        if (inputVector.magnitude > Player.Instance.minSpeed)
+            Player.Instance.lastDirection = inputVector;
+
+        if (PlayerVisual.Instance.Jump)
+            Player.Instance.rb.linearVelocity = new Vector2(Player.Instance.rb.linearVelocity.x, Player.Instance.jumpForce);
     }
 }

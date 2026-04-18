@@ -4,7 +4,7 @@ public class PlayerVisual : MonoBehaviour
 {
     public static PlayerVisual Instance { get; private set; }
 
-    private bool isRight, isLeft, Jump;
+    public bool isRight, isLeft, Jump;
 
     public Animator animator;
 
@@ -28,7 +28,7 @@ public class PlayerVisual : MonoBehaviour
 
     private void Update()
     {
-        SetDirection(Player.Instance.IsRight, Player.Instance.IsLeft, Player.Instance.Jump);
+        SetDirection(isRight, isLeft, Jump);
         SetAnimator(animator);
     }
 
