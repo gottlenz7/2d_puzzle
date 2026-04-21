@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2565450208449471013}
   - component: {fileID: 8591184442617689377}
   m_Layer: 0
-  m_Name: Body lever
+  m_Name: BodyLever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
