@@ -2016,8 +2016,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1416660391}
   - component: {fileID: 1416660390}
-  - component: {fileID: 1416660394}
   - component: {fileID: 1416660393}
+  - component: {fileID: 1416660394}
   m_Layer: 13
   m_Name: Prism
   m_TagString: Untagged
@@ -2071,7 +2071,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -956252262595852801, guid: 111bbed7e58b8fb489fdfa936145ee0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2110,13 +2110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e480fec910c82e241a68317329309fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prism
-  redLight: {fileID: 0}
-  blueLight: {fileID: 0}
-  redBox: {fileID: 858053456}
-  blueBox: {fileID: 2069468345}
-  redMaterial: {fileID: 2100000, guid: 35f135988b8708a4a92c1bf7cd141103, type: 2}
-  blueMaterial: {fileID: 2100000, guid: 68a389b26907a2545aaf2d8293f007f6, type: 2}
-  purpleMaterial: {fileID: 2100000, guid: 320eb225ff743234aab2aa00c8874854, type: 2}
+  redLight: 0
+  blueLight: 0
 --- !u!70 &1416660394
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2152,7 +2147,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.1, y: 0.1}
   m_Direction: 0
 --- !u!1 &1697342325
 GameObject:

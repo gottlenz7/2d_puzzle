@@ -46,21 +46,27 @@ public class Light : MonoBehaviour
         if (hit.collider != null)
         {
             lineRenderer.SetPosition(1, hit.point + (Vector2)(0.1f * direction));
+            
 
-            if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Mirror" && transform.parent != hit.collider.transform && !isCreated)
+            if (transform.parent != hit.collider.transform && !isCreated)
             {
-                isCreated = true;
-                isGrowing = false;
-                CreateNewLight(hit.collider, hit);
+                if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Mirror"
+                    || LayerMask.LayerToName(hit.collider.gameObject.layer) == "Prism")
+                {
+                    isCreated = true;
+                    isGrowing = false;
+
+                    if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Prism")
+                        Prism.Instance.DeleteChildren();
+
+                    CreateNewLight(hit.collider, hit, LayerMask.LayerToName(hit.collider.gameObject.layer));
+                }
             }
         }
     }
 
-    private void CreateNewLight(Collider2D collider, RaycastHit2D hit)
+    private void CreateNewLight(Collider2D collider, RaycastHit2D hit, string layer)
     {
-        Mirror mirrorScript = collider.transform.GetComponent<Mirror>();
-        mirrorScript.lastLight = this;
-
         lightNumber++;
 
         GameObject newLight = new GameObject($"Light_{lightNumber}");
@@ -76,17 +82,30 @@ public class Light : MonoBehaviour
         lightScript.isHorizontal = !isHorizontal;
         lightScript.hitLayers = hitLayers;
 
-        DirectionLight(collider, lightScript);
-
         LineRenderer renderer = newLight.AddComponent<LineRenderer>();
         renderer.startWidth = 0.1f;
-        renderer.material = lineRenderer.material;
-        renderer.colorGradient = lineRenderer.colorGradient;
+        
+        DirectionLight(collider, lightScript);
+
+        if (layer == "Prism")
+        {
+            if (lineRenderer.sharedMaterial.name == "Red Light")
+                Prism.Instance.redLight = this;
+            else
+                Prism.Instance.blueLight = this;
+        }
+        else
+        {
+            Mirror mirrorScript = collider.transform.GetComponent<Mirror>();
+            mirrorScript.lastLight = this;
+
+            renderer.sharedMaterial = lineRenderer.sharedMaterial;
+        }
     }
 
     public void DirectionLight(Collider2D collider, Light lightScript)
     {
-        lightScript.isRight = collider.transform.up.x > 0f ? true : false;
-        lightScript.isUp = collider.transform.up.y > 0f ? true : false;
+        lightScript.isRight = collider.transform.up.x >= 0f ? true : false;
+        lightScript.isUp = collider.transform.up.y >= 0f ? true : false;
     }
 }
