@@ -57,7 +57,7 @@ public class Light : MonoBehaviour
                     isGrowing = false;
 
                     if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Prism")
-                        Prism.Instance.DeleteChildren();
+                        PrismController.Instance.DeleteChildren();
 
                     CreateNewLight(hit.collider, hit, LayerMask.LayerToName(hit.collider.gameObject.layer));
                 }
@@ -90,9 +90,9 @@ public class Light : MonoBehaviour
         if (layer == "Prism")
         {
             if (lineRenderer.sharedMaterial.name == "Red Light")
-                Prism.Instance.redLight = this;
+                PrismController.Instance.SetRedLight(this);
             else
-                Prism.Instance.blueLight = this;
+                PrismController.Instance.SetBlueLight(this);
         }
         else
         {

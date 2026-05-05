@@ -10,7 +10,7 @@ public class Mirror : MonoBehaviour
 
     public void Update()
     {
-        if ((lastLight == null || Prism.Instance.redLight == null || Prism.Instance.blueLight == null) 
+        if ((lastLight == null || !PrismController.Model.HasRed || !PrismController.Model.HasBlue) 
             && transform.childCount > 1 && transform.name == "Mirror (4)")
             Destroy(transform.GetChild(1).gameObject);
     }
