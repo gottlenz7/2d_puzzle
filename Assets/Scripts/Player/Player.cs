@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
 
-    public Transform holdPosition;
+    public Transform holdPosition, playerPosition;
     public GameObject heldItem = null;
     public Collider2D itemCollider;
 
@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 6e75b663a26b39f488cca7c6b48cad6d
+guid: 52a32535218d8b042b853368239db885
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2185472608353246101
-    second: robot_0
+      213: 2266347124418187054
+    second: monster plant_0
   - first:
-      213: 406595380662849328
-    second: robot_1
+      213: 8073069579885954907
+    second: monster plant_1
   - first:
-      213: 9048603163218632696
-    second: robot_2
+      213: 2434577792406190470
+    second: monster plant_2
   - first:
-      213: 906260353153848268
-    second: robot_3
+      213: -3483331385015233059
+    second: monster plant_3
+  - first:
+      213: -654166323561932967
+    second: monster plant_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,11 +112,99 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: robot_0
+      name: monster plant_0
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 485
+        width: 368
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f8ca8b3bea37f10800000000000000
+      internalID: 2266347124418187054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster plant_1
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 433
+        width: 312
+        height: 213
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6036629}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b574d1c820e490070800000000000000
+      internalID: 8073069579885954907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster plant_2
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 392
+        width: 203
+        height: 254
+      alignment: 9
+      pivot: {x: 0.5, y: 0.68400174}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689fc6e6a9b59c120800000000000000
+      internalID: 2434577792406190470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster plant_3
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 377
+        width: 129
+        height: 269
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7088732}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd592319f88b8afc0800000000000000
+      internalID: -3483331385015233059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster plant_4
       rect:
         serializedVersion: 2
         x: 27
-        y: 1084
+        y: 110
         width: 136
         height: 360
       alignment: 0
@@ -124,74 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6422c8ed34aba1e0800000000000000
-      internalID: -2185472608353246101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robot_1
-      rect:
-        serializedVersion: 2
-        x: 365
-        y: 61
-        width: 38
-        height: 1887
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03f49bf285484a500800000000000000
-      internalID: 406595380662849328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robot_2
-      rect:
-        serializedVersion: 2
-        x: 734
-        y: 1430
-        width: 183
-        height: 165
-      alignment: 9
-      pivot: {x: 0.5, y: 0.21}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8ff5f19a2a8139d70800000000000000
-      internalID: 9048603163218632696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robot_3
-      rect:
-        serializedVersion: 2
-        x: 612
-        y: 1084
-        width: 426
-        height: 331
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cc351c75dfea39c00800000000000000
-      internalID: 906260353153848268
+      spriteID: 9575114d13febe6f0800000000000000
+      internalID: -654166323561932967
       vertices: []
       indices: 
       edges: []
@@ -200,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 60398e29369a8ba4dae5e5af35c91916
+    spriteID: 3a26384c4873fda458624150176fedea
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      robot_0: -2185472608353246101
-      robot_1: 406595380662849328
-      robot_2: 9048603163218632696
-      robot_3: 906260353153848268
+      monster plant_0: 2266347124418187054
+      monster plant_1: 8073069579885954907
+      monster plant_2: 2434577792406190470
+      monster plant_3: -3483331385015233059
+      monster plant_4: -654166323561932967
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

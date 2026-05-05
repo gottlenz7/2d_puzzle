@@ -75,6 +75,18 @@ public class Controller : MonoBehaviour
             if (lever != null)
                 lever.SwithchLever();
 
+            Throne throne = hit.collider.GetComponent<Throne>();
+
+            float distance = Vector3.Distance(hit.collider.transform.position, Player.Instance.transform.position);
+
+            if (throne != null && distance < 2f)
+            {
+                PlayerVisual.Instance.Jump = false;
+                PlayerVisual.Instance.isLeft = false;
+                PlayerVisual.Instance.isRight = false;
+                Player.Instance.speed = 0f;
+                throne.SitOnThrone();
+            }
         }
     }
 
