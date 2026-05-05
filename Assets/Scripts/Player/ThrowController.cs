@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Throw : MonoBehaviour
+public class ThrowController : MonoBehaviour
 {
     public Transform throwItem;
 
@@ -19,13 +19,13 @@ public class Throw : MonoBehaviour
 
     public void ThrowItem()
     {
-        if (transform.parent == Player.Instance.holdPosition)
+        if (transform.parent == PlayerModel.Instance.holdPosition)
         {
             transform.SetParent(null);
             rb.isKinematic = false;
             itemCollider.enabled = true;
 
-            Player.Instance.heldItem = null;
+            PlayerModel.Instance.heldItem = null;
 
             if (PlayerVisual.Instance.isRight)
                 facingDirection = 1;

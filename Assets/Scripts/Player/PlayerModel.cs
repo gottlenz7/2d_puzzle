@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerModel : MonoBehaviour
 {
-    public static Player Instance { get; private set; }
+    public static PlayerModel Instance { get; private set; }
 
     public Transform holdPosition;
     public GameObject heldItem = null;

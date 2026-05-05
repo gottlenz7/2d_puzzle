@@ -9,7 +9,7 @@ public class Lever : MonoBehaviour
 
     public void SwithchLever()
     {
-        float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
+        float distance = Vector3.Distance(transform.position, PlayerModel.Instance.transform.position);
 
         if (distance < 3f)
         {

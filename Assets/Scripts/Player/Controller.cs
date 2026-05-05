@@ -4,7 +4,7 @@ public class Controller : MonoBehaviour
 {
     public static Controller Instance { get; private set; }
 
-    private TakeDrop takeDropscript;
+    private TakeDropController takeDropscript;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class Controller : MonoBehaviour
             Destroy(gameObject);
         }
 
-        takeDropscript = new TakeDrop();
+        takeDropscript = new TakeDropController();
     }
 
     private void Update()
@@ -52,10 +52,10 @@ public class Controller : MonoBehaviour
         {
             GetFunction();
 
-            if (Player.Instance.heldItem != null)
+            if (PlayerModel.Instance.heldItem != null)
             {
-                GameObject Item = Player.Instance.heldItem.gameObject;
-                Item.GetComponent<Throw>().ThrowItem();
+                GameObject Item = PlayerModel.Instance.heldItem.gameObject;
+                Item.GetComponent<ThrowController>().ThrowItem();
             }
         }
     }
@@ -86,12 +86,12 @@ public class Controller : MonoBehaviour
         Vector2 inputVector = new Vector2(horizontal, vertical);
         inputVector = inputVector.normalized;
 
-        Player.Instance.rb.linearVelocity = new Vector2(horizontal * Player.Instance.speed, Player.Instance.rb.linearVelocity.y);
+        PlayerModel.Instance.rb.linearVelocity = new Vector2(horizontal * PlayerModel.Instance.speed, PlayerModel.Instance.rb.linearVelocity.y);
 
-        if (inputVector.magnitude > Player.Instance.minSpeed)
-            Player.Instance.lastDirection = inputVector;
+        if (inputVector.magnitude > PlayerModel.Instance.minSpeed)
+            PlayerModel.Instance.lastDirection = inputVector;
 
         if (PlayerVisual.Instance.Jump)
-            Player.Instance.rb.linearVelocity = new Vector2(Player.Instance.rb.linearVelocity.x, Player.Instance.jumpForce);
+            PlayerModel.Instance.rb.linearVelocity = new Vector2(PlayerModel.Instance.rb.linearVelocity.x, PlayerModel.Instance.jumpForce);
     }
 }
