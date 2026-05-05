@@ -979,6 +979,8 @@ GameObject:
   - component: {fileID: 645330902}
   - component: {fileID: 645330901}
   - component: {fileID: 645330900}
+  - component: {fileID: 645330904}
+  - component: {fileID: 645330903}
   m_Layer: 0
   m_Name: Lever (2)
   m_TagString: Untagged
@@ -1008,14 +1010,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645330898}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75af9b4c1850f1b46b45b89e9c1dec1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BigLever
-  lever1: {fileID: 1619900208}
-  lever2: {fileID: 645330899}
-  item: {fileID: 1023325638}
 --- !u!68 &645330901
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1128,6 +1127,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &645330903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645330898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288176f98169b13418434df4aaa5d0d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigLeverView
+  lever1: {fileID: 1619900208}
+  lever2: {fileID: 645330899}
+--- !u!114 &645330904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645330898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7f49ea8ec0a1245af1af7571f343de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeverController
+  item: {fileID: 1023325638}
+  view: {fileID: 645330903}
 --- !u!1 &841911573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,9 +1392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75af9b4c1850f1b46b45b89e9c1dec1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BigLever
-  lever1: {fileID: 1619900208}
-  lever2: {fileID: 862363549}
-  item: {fileID: 1023325638}
 --- !u!212 &862363552
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1776,6 +1800,8 @@ GameObject:
   - component: {fileID: 1619900207}
   - component: {fileID: 1619900210}
   - component: {fileID: 1619900209}
+  - component: {fileID: 1619900212}
+  - component: {fileID: 1619900211}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Untagged
@@ -1863,14 +1889,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619900206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75af9b4c1850f1b46b45b89e9c1dec1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BigLever
-  lever1: {fileID: 1619900208}
-  lever2: {fileID: 645330899}
-  item: {fileID: 1023325638}
 --- !u!68 &1619900210
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1925,6 +1948,34 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1619900211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619900206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288176f98169b13418434df4aaa5d0d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigLeverView
+  lever1: {fileID: 1619900208}
+  lever2: {fileID: 645330899}
+--- !u!114 &1619900212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619900206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7f49ea8ec0a1245af1af7571f343de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeverController
+  item: {fileID: 1023325638}
+  view: {fileID: 1619900211}
 --- !u!1 &1673496538
 GameObject:
   m_ObjectHideFlags: 0
