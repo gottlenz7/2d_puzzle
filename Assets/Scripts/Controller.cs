@@ -4,6 +4,8 @@ public class Controller : MonoBehaviour
 {
     public static Controller Instance { get; private set; }
 
+    public Note noteScript;
+
     private TakeDrop takeDropscript;
 
     private void Awake()
@@ -46,7 +48,36 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            takeDropscript.TakeItem();
+            if (Player.Instance.heldItem != null)
+            {
+                takeDropscript.DropItem();
+                return;
+            }
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(Player.Instance.transform.position, 2f);
+
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.CompareTag("Note"))
+                {
+                    if (noteScript.isOpen)
+                    {
+                        noteScript.HideNote();
+                        break;
+                    }
+                    else
+                    {
+                        noteScript.ShowNote();
+                        break;
+                    }
+                }
+
+                else if (collider.CompareTag("Item"))
+                {
+                    takeDropscript.TryTake(collider);
+                    break;
+                }
+            }
         }
         if (Input.GetMouseButtonDown(0))
         {
