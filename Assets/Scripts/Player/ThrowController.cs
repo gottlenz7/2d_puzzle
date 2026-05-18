@@ -4,11 +4,18 @@ public class ThrowController : MonoBehaviour
 {
     public Transform throwItem;
 
+    private PlayerView view;
+
     private float throwForce = 20f, throwUpForce = 5f;
     private float facingDirection;
     private Vector2 throwDirection;
     private Rigidbody2D rb;
     private Collider2D itemCollider;
+
+    public void Init(PlayerView view)
+    {
+        this.view = view;
+    }
 
     private void Awake()
     {
@@ -19,17 +26,17 @@ public class ThrowController : MonoBehaviour
 
     public void ThrowItem()
     {
-        if (transform.parent == PlayerModel.Instance.holdPosition)
+        if (transform.parent == view.holdPosition)
         {
             transform.SetParent(null);
             rb.isKinematic = false;
             itemCollider.enabled = true;
 
-            PlayerModel.Instance.heldItem = null;
+            view.heldItem = null;
 
-            if (PlayerVisual.Instance.isRight)
+            if (view.isRight)
                 facingDirection = 1;
-            else if (PlayerVisual.Instance.isLeft)
+            else if (view.isLeft)
                 facingDirection = -1;
             else
                 facingDirection = 0;

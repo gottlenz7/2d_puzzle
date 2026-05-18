@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class TakeDropController
 {
+    private PlayerView view;
+
+    public TakeDropController(PlayerView view)
+    {
+        this.view = view;
+    }
+
     public void TakeItem()
     {
-        if (PlayerModel.Instance.heldItem == null)
+        if (view.heldItem == null)
             TryTake();
         else
             DropItem();
@@ -12,24 +19,28 @@ public class TakeDropController
 
     private void TryTake()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(PlayerModel.Instance.transform.position, 2f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(view.position, 2f);
 
         foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag("Item"))
             {
-                PlayerModel.Instance.heldItem = collider.gameObject;
-                PlayerModel.Instance.itemCollider = collider;
+                view.heldItem = collider.gameObject;
+                view.itemCollider = collider;
 
-                Rigidbody2D rbItem = PlayerModel.Instance.heldItem.GetComponent<Rigidbody2D>();
+                ThrowController throwController = view.heldItem.GetComponent<ThrowController>();
+                if (throwController != null) 
+                    throwController.Init(view);
+
+                Rigidbody2D rbItem = view.heldItem.GetComponent<Rigidbody2D>();
                 rbItem.isKinematic = true;
                 rbItem.linearVelocity = Vector2.zero;
 
-                PlayerModel.Instance.itemCollider.enabled = false;
+                view.itemCollider.enabled = false;
 
-                PlayerModel.Instance.heldItem.transform.SetParent(PlayerModel.Instance.holdPosition);
-                PlayerModel.Instance.heldItem.transform.localPosition = Vector2.zero;
-                PlayerModel.Instance.heldItem.transform.localRotation = Quaternion.identity;
+                view.heldItem.transform.SetParent(view.holdPosition);
+                view.heldItem.transform.localPosition = Vector2.zero;
+                view.heldItem.transform.localRotation = Quaternion.identity;
 
                 break;
             }
@@ -38,13 +49,13 @@ public class TakeDropController
 
     private void DropItem()
     {
-        PlayerModel.Instance.heldItem.transform.SetParent(null);
+        view.heldItem.transform.SetParent(null);
 
-        Rigidbody2D rbItem = PlayerModel.Instance.heldItem.GetComponent<Rigidbody2D>();
+        Rigidbody2D rbItem = view.heldItem.GetComponent<Rigidbody2D>();
         rbItem.isKinematic = false;
 
-        PlayerModel.Instance.itemCollider.enabled = true;
+        view.itemCollider.enabled = true;
 
-        PlayerModel.Instance.heldItem = null;
+        view.heldItem = null;
     }
 }

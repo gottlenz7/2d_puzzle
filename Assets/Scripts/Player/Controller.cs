@@ -4,6 +4,9 @@ public class Controller : MonoBehaviour
 {
     public static Controller Instance { get; private set; }
 
+    private PlayerModel model;
+    [SerializeField] private PlayerView view;
+
     private TakeDropController takeDropscript;
 
     private void Awake()
@@ -17,32 +20,36 @@ public class Controller : MonoBehaviour
             Destroy(gameObject);
         }
 
-        takeDropscript = new TakeDropController();
+        model = new PlayerModel();
+        takeDropscript = new TakeDropController(view);
     }
 
     private void Update()
     {
+        view.SetDirection(view.isRight, view.isLeft, view.Jump);
+        view.SetAnimator(view.animator);
+
         CheckButton();
         HandleMovement();
     }
 
     private void CheckButton()
     {
-        PlayerVisual.Instance.Jump = false;
-        PlayerVisual.Instance.isLeft = false;
-        PlayerVisual.Instance.isRight = false;
+        view.Jump = false;
+        view.isLeft = false;
+        view.isRight = false;
 
         if (Input.GetKey(KeyCode.D))
         {
-            PlayerVisual.Instance.isRight = true;
+            view.isRight = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            PlayerVisual.Instance.isLeft = true;
+            view.isLeft = true;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PlayerVisual.Instance.Jump = true;
+            view.Jump = true;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -52,9 +59,9 @@ public class Controller : MonoBehaviour
         {
             GetFunction();
 
-            if (PlayerModel.Instance.heldItem != null)
+            if (view.heldItem != null)
             {
-                GameObject Item = PlayerModel.Instance.heldItem.gameObject;
+                GameObject Item = view.heldItem.gameObject;
                 Item.GetComponent<ThrowController>().ThrowItem();
             }
         }
@@ -73,7 +80,11 @@ public class Controller : MonoBehaviour
 
             Lever lever = hit.collider.GetComponent<Lever>();
             if (lever != null)
+            {
+                lever.Init(view);
+
                 lever.SwithchLever();
+            }
 
         }
     }
@@ -86,12 +97,12 @@ public class Controller : MonoBehaviour
         Vector2 inputVector = new Vector2(horizontal, vertical);
         inputVector = inputVector.normalized;
 
-        PlayerModel.Instance.rb.linearVelocity = new Vector2(horizontal * PlayerModel.Instance.speed, PlayerModel.Instance.rb.linearVelocity.y);
+        view.rb.linearVelocity = new Vector2(horizontal * model.speed, view.rb.linearVelocity.y);
 
-        if (inputVector.magnitude > PlayerModel.Instance.minSpeed)
-            PlayerModel.Instance.lastDirection = inputVector;
+        if (inputVector.magnitude > model.minSpeed)
+            model.lastDirection = inputVector;
 
-        if (PlayerVisual.Instance.Jump)
-            PlayerModel.Instance.rb.linearVelocity = new Vector2(PlayerModel.Instance.rb.linearVelocity.x, PlayerModel.Instance.jumpForce);
+        if (view.Jump)
+            view.rb.linearVelocity = new Vector2(view.rb.linearVelocity.x, model.jumpForce);
     }
 }
