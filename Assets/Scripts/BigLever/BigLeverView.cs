@@ -24,10 +24,10 @@ public class BigLeverView : MonoBehaviour
     {
         if ((activeLever == lever1 && firstHit) || !firstHit)
         {
-            Throw.Instance.isHit = true;
-            Throw.Instance.targetPoint = activeLever;
-            Throw.Instance.pointA = activeLever;
-            Throw.Instance.pointB = (activeLever == lever1) ? lever2 : lever1;
+            ThrowController.Instance.Model.isHit = true;
+            ThrowController.Instance.Model.targetPoint = activeLever;
+            ThrowController.Instance.Model.pointA = activeLever;
+            ThrowController.Instance.Model.pointB = (activeLever == lever1) ? lever2 : lever1;
 
             float newX = activeLever.localScale.x * -1f;
 
@@ -40,7 +40,7 @@ public class BigLeverView : MonoBehaviour
 
     private void FlipLever(Transform lever, float x)
     {
-        var scale = lever.localScale;
+        Vector3 scale = lever.localScale;
         scale.x = x;
         lever.localScale = scale;
     }

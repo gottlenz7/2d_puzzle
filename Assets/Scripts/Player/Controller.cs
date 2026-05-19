@@ -59,10 +59,9 @@ public class Controller : MonoBehaviour
         {
             GetFunction();
 
-            if (view.heldItem != null)
+            if (view.heldItem != null && view.heldItem.GetComponent<ThrowController>() != null) 
             {
-                GameObject Item = view.heldItem.gameObject;
-                Item.GetComponent<ThrowController>().ThrowItem();
+                ThrowController.Instance.ThrowItem();
             }
         }
     }
