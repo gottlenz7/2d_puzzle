@@ -169,3 +169,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e024501b6a1db24d9ad6a104c892086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Throw
+  throwItem: {fileID: 0}
