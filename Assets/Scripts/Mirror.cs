@@ -8,9 +8,17 @@ public class Mirror : MonoBehaviour
     private float rotateMirror = 90f;
     private string childName;
 
+    public void Update()
+    {
+        if ((lastLight == null || !PrismController.Model.HasRed || !PrismController.Model.HasBlue) 
+            && transform.childCount > 1 && transform.name == "Mirror (4)")
+            Destroy(transform.GetChild(1).gameObject);
+    }
+
     public void Rotate()
     {
         transform.Rotate(0f, 0f, rotateMirror);
+
 
         if (transform.childCount > 1)
         {
@@ -28,7 +36,8 @@ public class Mirror : MonoBehaviour
 
                 int.TryParse(parts[1], out int number);
 
-                if (number >= numberChild)
+                if (number >= numberChild &&
+                    transform.GetChild(1).GetComponent<LineRenderer>().sharedMaterial == light.GetComponent<LineRenderer>().sharedMaterial)
                     Destroy(light);
             }
         }
