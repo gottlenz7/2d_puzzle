@@ -888,7 +888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8749082199446552716, guid: 268ac9934f52db8479d826e6fb42e803, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8749082199446552716, guid: 268ac9934f52db8479d826e6fb42e803, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1515,7 +1515,7 @@ Transform:
   m_GameObject: {fileID: 858053454}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 3.78, z: 0}
+  m_LocalPosition: {x: 3.27, y: 3.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1619,10 +1619,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8683821912135389271, guid: e7e57787fe4275e40ba8f941a501c5b5, type: 3}
-      propertyPath: view
-      value: 
-      objectReference: {fileID: 1167754614}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1713,7 +1709,7 @@ Transform:
   m_GameObject: {fileID: 981062627}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5, y: -2.66, z: 0}
+  m_LocalPosition: {x: 6, y: -2.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1932,17 +1928,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
---- !u!114 &1167754614 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 988048315658899336, guid: 3f8aac9d450f22e40a20d58b0f44c0b6, type: 3}
-  m_PrefabInstance: {fileID: 2896413069397180126}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 756f737a2264fbc4782b1ec16153f979, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
 --- !u!1 &1168791969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,10 +2016,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1416660391}
   - component: {fileID: 1416660390}
-  - component: {fileID: 1416660394}
+  - component: {fileID: 1416660392}
   - component: {fileID: 1416660393}
-  - component: {fileID: 1416660396}
-  - component: {fileID: 1416660395}
   m_Layer: 13
   m_Name: Prism
   m_TagString: Untagged
@@ -2088,7 +2071,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -956252262595852801, guid: 111bbed7e58b8fb489fdfa936145ee0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2115,20 +2098,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1416660393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416660389}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e480fec910c82e241a68317329309fca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Prism
---- !u!70 &1416660394
-CapsuleCollider2D:
+--- !u!68 &1416660392
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2162,9 +2133,18 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 0.2}
-  m_Direction: 0
---- !u!114 &1416660395
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.7163821, y: -0.009690404}
+  - {x: -0.0130473375, y: 0.7231158}
+  - {x: 0.7273265, y: -0.028447986}
+  - {x: 0.043748736, y: -0.70922124}
+  - {x: -0.7158411, y: -0.010002077}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &1416660393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2173,29 +2153,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1416660389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a90e8840fb070a3488c0d7913fa4509b, type: 3}
+  m_Script: {fileID: 11500000, guid: e480fec910c82e241a68317329309fca, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrismView
-  redBox: {fileID: 858053456}
-  blueBox: {fileID: 2069468345}
-  redMaterial: {fileID: 2100000, guid: 35f135988b8708a4a92c1bf7cd141103, type: 2}
-  blueMaterial: {fileID: 2100000, guid: 68a389b26907a2545aaf2d8293f007f6, type: 2}
-  purpleMaterial: {fileID: 2100000, guid: 320eb225ff743234aab2aa00c8874854, type: 2}
---- !u!114 &1416660396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416660389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0cfd243612b67845ae8bc6018a90b85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrismController
-  view: {fileID: 1416660395}
-  redLight: {fileID: 0}
-  blueLight: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Prism
 --- !u!1 &1697342325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,7 +2758,7 @@ Transform:
   m_GameObject: {fileID: 2069468343}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9, y: -2.66, z: 0}
+  m_LocalPosition: {x: 3.39, y: -2.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
