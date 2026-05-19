@@ -1680,6 +1680,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8683821912135389271, guid: e7e57787fe4275e40ba8f941a501c5b5, type: 3}
+      propertyPath: view
+      value: 
+      objectReference: {fileID: 1167754614}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1989,6 +1993,17 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
+--- !u!114 &1167754614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 988048315658899336, guid: 3f8aac9d450f22e40a20d58b0f44c0b6, type: 3}
+  m_PrefabInstance: {fileID: 2896413069397180126}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756f737a2264fbc4782b1ec16153f979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
 --- !u!1 &1168791969
 GameObject:
   m_ObjectHideFlags: 0
