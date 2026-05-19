@@ -978,7 +978,6 @@ GameObject:
   - component: {fileID: 645330899}
   - component: {fileID: 645330902}
   - component: {fileID: 645330901}
-  - component: {fileID: 645330900}
   - component: {fileID: 645330904}
   - component: {fileID: 645330903}
   m_Layer: 0
@@ -1003,18 +1002,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1496592203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &645330900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 645330898}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75af9b4c1850f1b46b45b89e9c1dec1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BigLever
 --- !u!68 &645330901
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1154,7 +1141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeverController
   item: {fileID: 1023325638}
-  view: {fileID: 645330903}
 --- !u!1 &841911573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,7 +1785,6 @@ GameObject:
   - component: {fileID: 1619900208}
   - component: {fileID: 1619900207}
   - component: {fileID: 1619900210}
-  - component: {fileID: 1619900209}
   - component: {fileID: 1619900212}
   - component: {fileID: 1619900211}
   m_Layer: 0
@@ -1882,18 +1867,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1261939856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1619900209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619900206}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75af9b4c1850f1b46b45b89e9c1dec1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BigLever
 --- !u!68 &1619900210
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1975,7 +1948,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeverController
   item: {fileID: 1023325638}
-  view: {fileID: 1619900211}
 --- !u!1 &1673496538
 GameObject:
   m_ObjectHideFlags: 0
