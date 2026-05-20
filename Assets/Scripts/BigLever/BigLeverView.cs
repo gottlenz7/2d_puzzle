@@ -18,6 +18,12 @@ public class BigLeverView : MonoBehaviour
 
         pinkBoxes = GameObject.FindGameObjectsWithTag("PinkBox");
         greenBoxes = GameObject.FindGameObjectsWithTag("GreenBox");
+
+        foreach (var box in pinkBoxes)
+            box.SetActive(false);
+
+        foreach (var box in greenBoxes)
+            box.SetActive(false);
     }
 
     public void ActivateLever(bool isUsed, bool firstHit, Transform activeLever)

@@ -31,6 +31,7 @@ public class Controller : MonoBehaviour
 
         CheckButton();
         HandleMovement();
+        CheckGrounded();
     }
 
     private void CheckButton()
@@ -49,7 +50,11 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            view.Jump = true;
+            if (model.jumpsLeft > 0)
+            {
+                view.Jump = true;
+                model.jumpsLeft--;
+            }
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -103,5 +108,16 @@ public class Controller : MonoBehaviour
 
         if (view.Jump)
             view.rb.linearVelocity = new Vector2(view.rb.linearVelocity.x, model.jumpForce);
+    }
+
+    private void CheckGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(view.transform.position, Vector2.down, view.GetComponent<Collider2D>().bounds.extents.y + 0.1f);
+
+        bool wasGrounded = model.isGrounded;
+        model.isGrounded = hit.collider != null ? true : false;
+
+        if (model.isGrounded && !wasGrounded)
+            model.jumpsLeft = model.maxJumps;
     }
 }
