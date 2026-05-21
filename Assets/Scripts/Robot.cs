@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Robot : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class Robot : MonoBehaviour
         {
             lineRenderer.SetPosition(0, startPoint);
             lineRenderer.SetPosition(1, hit.point);
+
+            if (hit.collider.CompareTag("Player"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
         else
         {

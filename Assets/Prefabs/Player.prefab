@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2138126482618443406}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 3929401091865186072}
   m_Layer: 0
   m_Name: GameObject (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 5707796344806485246}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 3591684202807204043}
   m_Layer: 0
   m_Name: GameObject (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,11 +260,11 @@ GameObject:
   - component: {fileID: 5035372435358792759}
   - component: {fileID: 5129720361728502752}
   - component: {fileID: 4957554174019082088}
-  - component: {fileID: 988048315658899336}
   - component: {fileID: 5219386379202229519}
+  - component: {fileID: 988048315658899336}
   m_Layer: 0
   m_Name: PlayerVisual
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -395,26 +395,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &988048315658899336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5730859048932994685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 756f737a2264fbc4782b1ec16153f979, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
-  rb: {fileID: 0}
-  animator: {fileID: 0}
-  holdPosition: {fileID: 0}
-  heldItem: {fileID: 0}
-  itemCollider: {fileID: 0}
-  isRight: 0
-  isLeft: 0
-  Jump: 0
 --- !u!70 &5219386379202229519
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -452,6 +432,26 @@ CapsuleCollider2D:
   m_Offset: {x: -0.37855887, y: 0.11214781}
   m_Size: {x: 0.224298, y: 0.224298}
   m_Direction: 0
+--- !u!114 &988048315658899336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730859048932994685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756f737a2264fbc4782b1ec16153f979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  holdPosition: {fileID: 0}
+  heldItem: {fileID: 0}
+  itemCollider: {fileID: 0}
+  isRight: 0
+  isLeft: 0
+  Jump: 0
 --- !u!1 &7566519598868522467
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 5988295656987741960}
   m_Layer: 0
   m_Name: HoldPosition
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

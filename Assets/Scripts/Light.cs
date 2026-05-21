@@ -61,6 +61,12 @@ public class Light : MonoBehaviour
 
                     CreateNewLight(hit.collider, hit, LayerMask.LayerToName(hit.collider.gameObject.layer));
                 }
+
+                else if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Receiver")
+                {
+                    Receiver receiver = hit.collider.GetComponent<Receiver>();
+                    receiver.Hit();
+                }
             }
         }
     }

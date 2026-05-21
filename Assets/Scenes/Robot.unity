@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 841911576}
   - component: {fileID: 841911575}
   - component: {fileID: 841911574}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,7 +1138,7 @@ SpriteRenderer:
   m_Size: {x: 2.06, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1077221884
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   laser: {fileID: 462352428}
   hitLayers:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 4294967295
   lineRenderer: {fileID: 1173052367}
 --- !u!120 &1173052367
 LineRenderer:
@@ -1890,7 +1890,7 @@ SpriteRenderer:
   m_Size: {x: 2.01, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1703655945
@@ -2060,7 +2060,7 @@ SpriteRenderer:
   m_Size: {x: 3.22, y: 3.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1947219550

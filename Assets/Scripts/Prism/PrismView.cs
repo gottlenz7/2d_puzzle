@@ -10,6 +10,8 @@ public class PrismView : MonoBehaviour
         light.GetComponent<LineRenderer>().sharedMaterial = redMaterial;
         light.GetComponent<LineRenderer>().SetPosition(1, redBox.position);
         light.GetComponent<Light>().isGrowing = false;
+
+        redBox.GetComponent<Receiver>().Hit();
     }
 
     public void CreateBlueLight(Transform light)
@@ -17,6 +19,8 @@ public class PrismView : MonoBehaviour
         light.GetComponent<LineRenderer>().sharedMaterial = blueMaterial;
         light.GetComponent<LineRenderer>().SetPosition(1, blueBox.position);
         light.GetComponent<Light>().isGrowing = false;
+
+        blueBox.GetComponent<Receiver>().Hit();
     }
 
     public void CreatePurpleLight(Transform light)
