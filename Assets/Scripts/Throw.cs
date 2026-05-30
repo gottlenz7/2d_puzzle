@@ -4,7 +4,7 @@ public class Throw : MonoBehaviour
 {
     public Transform throwItem;
 
-    private float throwForce = 20f, throwUpForce = 5f;
+    private float throwForce = 10f, throwUpForce = 5f;
     private float facingDirection;
     private Vector2 throwDirection;
     private Rigidbody2D rb;
