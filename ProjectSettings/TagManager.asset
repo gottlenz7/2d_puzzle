@@ -8,12 +8,9 @@ TagManager:
   - Mirror
   - Back
   - Light
-<<<<<<< HEAD
   - PinkBox
   - GreenBox
-=======
   - Note
->>>>>>> add/monster-plant
   layers:
   - Default
   - TransparentFX
@@ -28,13 +25,10 @@ TagManager:
   - 
   - Wall
   - Player
-<<<<<<< HEAD
   - Prism
   - Receiver
-=======
   - Throne
   - Ring
->>>>>>> add/monster-plant
   - 
   - 
   - 
