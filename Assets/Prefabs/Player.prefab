@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2426306751566057236}
   - component: {fileID: 2138126482618443406}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject (1)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6529500513983502528}
   - component: {fileID: 3929401091865186072}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject (2)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5707796344806485246}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9098852510484797470}
   - component: {fileID: 3591684202807204043}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject (3)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 4957554174019082088}
   - component: {fileID: 5219386379202229519}
   - component: {fileID: 988048315658899336}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlayerVisual
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5988295656987741960}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HoldPosition
   m_TagString: Player
   m_Icon: {fileID: 0}

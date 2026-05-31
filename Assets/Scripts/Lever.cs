@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Lever : MonoBehaviour 
+public class Lever : MonoBehaviour
 {
     public Transform lever;
+    public GameObject exit;
 
     private PlayerView view;
 
@@ -24,13 +26,24 @@ public class Lever : MonoBehaviour
             {
                 lever.Rotate(0f, 0f, rotateLevel);
                 isUsed = true;
+
+                if (SceneManager.GetActiveScene().name == "Level1.1")
+                    StateManager.Instance.leverPulled = true;
+
+                if (exit != null)
+                    exit.SetActive(true);
             }
             else
             {
                 lever.Rotate(0f, 0f, -rotateLevel);
                 isUsed = false;
+
+                if (SceneManager.GetActiveScene().name == "Level1.1")
+                    StateManager.Instance.leverPulled = false;
+
+                if (exit != null)
+                    exit.SetActive(false);
             }
         }
-
     }
 }

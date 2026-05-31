@@ -9,45 +9,27 @@ public class TakeDropController
         this.view = view;
     }
 
-    public void TakeItem()
+    public void TryTake(Collider2D collider)
     {
-        if (view.heldItem == null)
-            TryTake();
-        else
-            DropItem();
+        view.heldItem = collider.gameObject;
+        view.itemCollider = collider;
+
+        ThrowController throwController = view.heldItem.GetComponent<ThrowController>();
+        if (throwController != null) 
+            throwController.Init(view);
+
+        Rigidbody2D rbItem = view.heldItem.GetComponent<Rigidbody2D>();
+        rbItem.isKinematic = true;
+        rbItem.linearVelocity = Vector2.zero;
+
+        view.itemCollider.enabled = false;
+
+        view.heldItem.transform.SetParent(view.holdPosition);
+        view.heldItem.transform.localPosition = Vector2.zero;
+        view.heldItem.transform.localRotation = Quaternion.identity;
     }
 
-    private void TryTake()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(view.position, 2f);
-
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.CompareTag("Item"))
-            {
-                view.heldItem = collider.gameObject;
-                view.itemCollider = collider;
-
-                ThrowController throwController = view.heldItem.GetComponent<ThrowController>();
-                if (throwController != null) 
-                    throwController.Init(view);
-
-                Rigidbody2D rbItem = view.heldItem.GetComponent<Rigidbody2D>();
-                rbItem.isKinematic = true;
-                rbItem.linearVelocity = Vector2.zero;
-
-                view.itemCollider.enabled = false;
-
-                view.heldItem.transform.SetParent(view.holdPosition);
-                view.heldItem.transform.localPosition = Vector2.zero;
-                view.heldItem.transform.localRotation = Quaternion.identity;
-
-                break;
-            }
-        }
-    }
-
-    private void DropItem()
+    public void DropItem()
     {
         view.heldItem.transform.SetParent(null);
 

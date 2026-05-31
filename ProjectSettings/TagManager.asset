@@ -11,6 +11,7 @@ TagManager:
   - PinkBox
   - GreenBox
   - Note
+  - ForLight
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Light
   - Back
   - Mirror
-  - 
+  - Rock
   - 
   - Wall
   - Player
@@ -29,9 +30,7 @@ TagManager:
   - Receiver
   - Throne
   - Ring
-  - 
-  - 
-  - 
+  - Torch
   - 
   - 
   - 

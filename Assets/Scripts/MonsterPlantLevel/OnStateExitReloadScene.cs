@@ -5,30 +5,40 @@ public class OnStateExitReloadScene : MonoBehaviour
 {
     private GameObject throne, ring, passage;
     private bool Sitting;
+    private PlayerView view;
 
     private void Awake()
     {
         throne = GameObject.Find("Throne");
         ring = GameObject.Find("Ring");
         passage = GameObject.Find("Passage");
-        passage.SetActive(false);
+
+        if (StateManager.Instance.leverPulled)
+            passage.SetActive(true);
+        else 
+            passage.SetActive(false);
+
+        view = FindObjectOfType<PlayerView>();
     }
 
     private void Update()
     {
-        Sitting = PlayerVisual.Instance.animator.GetBool("Sitting");
+        Sitting = view.animator.GetBool("Sitting");
     }
 
     public void ReloadScene()
     {
-        if (Sitting) 
+        if (Sitting)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void EatObjects()
     {
-        throne.SetActive(false);
-        ring.SetActive(false);
-        passage.SetActive(true);
+        if (!Sitting)
+        {
+            throne.SetActive(false);
+            ring.SetActive(false);
+            passage.SetActive(true);
+        }
     }
 }

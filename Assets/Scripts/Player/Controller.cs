@@ -4,6 +4,8 @@ public class Controller : MonoBehaviour
 {
     public static Controller Instance { get; private set; }
 
+    public Note noteScript;
+
     private PlayerModel model;
     [SerializeField] private PlayerView view;
 
@@ -58,7 +60,36 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            takeDropscript.TakeItem();
+            if (view.heldItem != null)
+            {
+                takeDropscript.DropItem();
+                return;
+            }
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(view.transform.position, 2f);
+
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.CompareTag("Note"))
+                {
+                    if (noteScript.isOpen)
+                    {
+                        noteScript.HideNote();
+                        break;
+                    }
+                    else
+                    {
+                        noteScript.ShowNote();
+                        break;
+                    }
+                }
+
+                else if (collider.CompareTag("Item"))
+                {
+                    takeDropscript.TryTake(collider);
+                    break;
+                }
+            }
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -90,6 +121,21 @@ public class Controller : MonoBehaviour
                 lever.SwithchLever();
             }
 
+            Throne throne = hit.collider.GetComponent<Throne>();
+
+            float distance = Vector3.Distance(hit.collider.transform.position, view.transform.position);
+
+            if (throne != null && distance < 2f)
+            {
+                view.SetDirection(false, false, false);
+                view.SetAnimator(view.animator);
+                model.speed = 0f;
+                throne.SitOnThrone();
+            }
+
+            Torch torch = hit.collider.GetComponent<Torch>();
+            if (torch != null)
+                torch.TryHide();
         }
     }
 
