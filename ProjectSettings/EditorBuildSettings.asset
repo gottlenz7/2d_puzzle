@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StoryLevel0.unity
+    guid: b5f8c29753c00af4489d78312f1eb9e5
+  - enabled: 1
     path: Assets/Scenes/Level0.unity
     guid: f54b07cae73c6634db2842963d829db5
+  - enabled: 1
+    path: Assets/Scenes/StoryLevel1.unity
+    guid: 8706348a71e7c4444a2711cb1b1588f8
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 67a34f1cd6baabd4388bf2939ff6c1ea
@@ -15,14 +21,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.1.unity
     guid: 6001956bd60d2d442be70dfd97e8314d
   - enabled: 1
+    path: Assets/Scenes/StoryLevel2.unity
+    guid: 2cbbd2202b760784cb9574fc18357344
+  - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: fb71826ef73de1243a293227dbf98aaf
+  - enabled: 1
+    path: Assets/Scenes/StoryLevel3.unity
+    guid: 0bf03dfb947be5243abedb46c7574956
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: bdc0b9beb8638954598f7d9ed3e5d56d
   - enabled: 1
+    path: Assets/Scenes/StoryLevel4.unity
+    guid: c8001adde8e50a246b6ef6bb4469c658
+  - enabled: 1
     path: Assets/Scenes/Level4.unity
     guid: bd292e2c3fb33364283fdba7dc5e7b87
+  - enabled: 1
+    path: Assets/Scenes/TheEnd.unity
+    guid: 873a837fe73eaaf4cb5798cba908072d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e732f2498b505504f927adeb712e3f70, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 0dae80aec0e37cf47a851f59bfcf447a, type: 3}

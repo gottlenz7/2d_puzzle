@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6611962498700663850}
   - component: {fileID: 1800392072793244669}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: light_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4615165179224386896}
   - component: {fileID: 5268150126190134488}
   - component: {fileID: 2067883560908617359}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5428206428529569624, guid: 111bbed7e58b8fb489fdfa936145ee0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 6982581246455363612}
   - component: {fileID: 2586346013568967549}
   - component: {fileID: 4920333942392853000}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TorchTake
   m_TagString: Item
   m_Icon: {fileID: 0}

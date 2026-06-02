@@ -8767,7 +8767,7 @@ MonoBehaviour:
   laser: {fileID: 1103922485}
   hitLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130039
   lineRenderer: {fileID: 1118623806}
 --- !u!120 &1118623806
 LineRenderer:
@@ -12486,7 +12486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9a1e40466bdc944a1345fd8793afc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerCollider
-  nextScene: 0
+  nextScene: 11
 --- !u!61 &1615727318
 BoxCollider2D:
   m_ObjectHideFlags: 0

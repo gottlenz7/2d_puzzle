@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9a1e40466bdc944a1345fd8793afc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerCollider
-  nextScene: 1
+  nextScene: 2
 --- !u!61 &2066614851
 BoxCollider2D:
   m_ObjectHideFlags: 0

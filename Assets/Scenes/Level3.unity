@@ -9450,7 +9450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9a1e40466bdc944a1345fd8793afc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerCollider
-  nextScene: 5
+  nextScene: 9
 --- !u!1001 &1895790062
 PrefabInstance:
   m_ObjectHideFlags: 0
